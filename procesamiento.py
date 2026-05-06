@@ -1,0 +1,16 @@
+import api_conexion
+def extraer_datos_partidos(datos):
+    partidos = datos.get("matches", [])
+    for idx, partido in enumerate(partidos, 1):
+        local = partido.get("homeTeam", {}).get("name", "Local")
+        visitante = partido.get("awayTeam", {}).get("name", "Visitante")
+        goles_local = partido.get("score", {}).get("fullTime", {}).get("home", "-")
+        goles_visitante = partido.get("score", {}).get("fullTime", {}).get("away", "-")
+        print(f"{idx}. {local} {goles_local} - {goles_visitante} {visitante}")
+ 
+if __name__ == "__main__":
+    datos = obtener_datos()
+    if datos:
+        extraer_datos_partidos(datos)
+    else:
+        print("No se pudieron obtener los datos.")
