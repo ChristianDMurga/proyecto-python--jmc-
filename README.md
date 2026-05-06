@@ -1,4 +1,5 @@
 # proyecto-python--jmc-
 
-Mariana Valeria Mendoza Palencia
-Christian Eduardo Domínguez Murga
+Mariana Valeria Mendoza Palencia,
+Christian Eduardo Domínguez Murga,
+Juan Pablo Garcia Ortiz
