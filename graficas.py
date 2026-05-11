@@ -1,7 +1,10 @@
 import matplotlib.pyplot as plt
 import api_conexion
+import requests
 def generar_graficaygoles():
-    datos = obtener_datos_con_goles()
+    """Genera una gráfica de barras con los goles de los últimos 10 partidos,
+   filtrando partidos sin marcador."""
+    datos = obtener_datos()
     if not datos or "matches" not in datos:
         print("No se pudieron obtener datos.")
         return
@@ -12,7 +15,8 @@ def generar_graficaygoles():
     for partido in datos["matches"][-10:]:
         home_g = partido["score"]["fullTime"]["home"]
         away_g = partido["score"]["fullTime"]["away"]
-        if home_g is not None and away_g is not None:
+        
+   if home_g is not None and away_g is not None:# VALIDACIÓN: Revisa que ambos marcadores existan.
             local = partido["homeTeam"]["shortName"] or partido["homeTeam"]["name"]
             visita = partido["awayTeam"]["shortName"] or partido["awayTeam"]["name"]
             nombres_partidos.append(f"{local} vs {visita}")
@@ -35,6 +39,7 @@ def generar_graficaygoles():
  
  
 def graficar_clasificacionpremier():
+    """Obtiene la tabla de la Premier League y crea una gráfica de barras horizontales."""
  
     url = "https://api.football-data.org/v4/competitions/PL/standings"
     headers = {"X-Auth-Token": "3468641386934e6f9fbc4344d8347104"}
@@ -53,7 +58,7 @@ def graficar_clasificacionpremier():
             pts = entrada['points']
             equipos.append(nombre)
             puntos.append(pts)
-        equipos.reverse()
+        equipos.reverse()# Invertimos para que arriba salga el lider
         puntos.reverse()
  
       
