@@ -2,6 +2,7 @@ import requests
 import json
  
 def obtener_datos():
+ """Se conecta a la API de football-data.org para obtener los partidos actuales."""
     url = "https://api.football-data.org/v4/matches"
    
     headers = {
@@ -11,17 +12,17 @@ def obtener_datos():
         respuesta = requests.get(url, headers=headers)
     
         if respuesta.status_code == 200:
-            datos = respuesta.json()
+            datos = respuesta.json() #Convierte la respuesta de string a JSON
             return datos
         else:
             return f"Información no encontrada"
-    except requests.exceptions.RequestException as e:
+    except requests.exceptions.RequestException as e: # Captura errores de la red, como falta de internet o URL caída
         return f"Ocurrió un error de conexión: {e}"
  
 if __name__ == "__main__":
     datos = obtener_datos()
     
-    if isinstance(datos, dict):
+    if isinstance(datos, dict): # Verifica si 'datos' es un diccionario
         
         import json
         print(json.dumps(datos, indent=4))
