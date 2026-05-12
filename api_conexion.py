@@ -2,7 +2,7 @@ import requests
 import json
 import matplotlib.pyplot as plt
 
-def obtener_datos():
+def obtener_datos():  """Esta funcion sirve para obtener los datos de la API mediante una llave que conseguimos registrandonos en la pagina del API."""
     url = "https://api.football-data.org/v4/matches"
    
     headers = {
