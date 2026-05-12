@@ -1,45 +1,40 @@
 import matplotlib.pyplot as plt
 import api_conexion
 def generar_graficaygoles():
-    """Genera una gráfica de barras con los goles de los últimos 10 partidos,
-   filtrando partidos sin marcador."""
     datos = obtener_datos()
     if not datos or "matches" not in datos:
         print("No se pudieron obtener datos.")
         return
  
-    nombres_partidos = []  
-    total_goles = []
+nombres_partidos = []  
+total_goles = []
  
-    for partido in datos["matches"][-10:]:
+for partido in datos["matches"][-10:]:
         home_g = partido["score"]["fullTime"]["home"]
         away_g = partido["score"]["fullTime"]["away"]
         
-   if home_g is not None and away_g is not None:# VALIDACIÓN: Revisa que ambos marcadores existan.
-            local = partido["homeTeam"]["shortName"] or partido["homeTeam"]["name"]
-            visita = partido["awayTeam"]["shortName"] or partido["awayTeam"]["name"]
-            nombres_partidos.append(f"{local} vs {visita}")
-            total_goles.append(home_g + away_g)
+if home_g is not None and away_g is not None:
+       local = partido["homeTeam"]["shortName"] or partido["homeTeam"]["name"]
+       visita = partido["awayTeam"]["shortName"] or partido["awayTeam"]["name"]
+       nombres_partidos.append(f"{local} vs {visita}")
+       total_goles.append(home_g + away_g)
  
-    if not nombres_partidos:
-        print("No se encontraron partidos con goles numéricos.")
-        return
+if not nombres_partidos:
+    print("No se encontraron partidos con goles numéricos.")
  
-    plt.figure(figsize=(12, 6))
-    plt.bar(nombres_partidos, total_goles, color='skyblue', edgecolor='navy')
-    plt.title('Cantidad Total de Goles por Partido', fontsize=15, pad=20)
-    plt.xlabel('Partidos', fontsize=12)
-    plt.ylabel('Número de Goles ', fontsize=12)
-    plt.xticks(rotation=30, ha='right')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.tight_layout()
-    plt.savefig('grafica_partidosygoles.png')
-    plt.show()
+plt.figure(figsize=(12, 6))
+plt.bar(nombres_partidos, total_goles, color='skyblue', edgecolor='navy')
+plt.title('Cantidad Total de Goles por Partido', fontsize=15, pad=20)
+plt.xlabel('Partidos', fontsize=12)
+plt.ylabel('Número de Goles ', fontsize=12)
+plt.xticks(rotation=30, ha='right')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.savefig('grafica_partidosygoles.png')
+plt.show()
  
  
 def graficar_clasificacionpremier():
-    """Obtiene la tabla de la Premier League y crea una gráfica de barras horizontales."""
- 
     url = "https://api.football-data.org/v4/competitions/PL/standings"
     headers = {"X-Auth-Token": "3468641386934e6f9fbc4344d8347104"}
     try:
