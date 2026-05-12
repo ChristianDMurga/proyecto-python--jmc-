@@ -1,3 +1,4 @@
+import api_conexion
 def generar_graficaygoles():
     datos = obtener_datos()
     if not datos or "matches" not in datos:
