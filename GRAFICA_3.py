@@ -1,11 +1,9 @@
 def generar_grafica_pastel_liga():
-   # URL para la clasificación de La Liga (PD)
    url = "https://api.football-data.org/v4/competitions/PD/standings"
    headers = {
        "X-Auth-Token": "3468641386934e6f9fbc4344d8347104"
    }
    try:
-       print("Consultando datos de La Liga...")
        respuesta = requests.get(url, headers=headers)
        if respuesta.status_code == 200:
            datos = respuesta.json()
@@ -35,7 +33,7 @@ def generar_grafica_pastel_liga():
            plt.title('Distribución de Puntos: La Liga Española', fontsize=15)
            plt.axis('equal')  # Asegura que el pastel sea circular
            plt.tight_layout()
-           print("Mostrando gráfica...")
+           plt.savefig('clasificacion_laliga.png')
            plt.show()
        else:
            print(f"Error en la API: {respuesta.status_code}")
