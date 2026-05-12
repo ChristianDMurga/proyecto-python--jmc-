@@ -1,5 +1,3 @@
-import requests
-import matplotlib.pyplot as plt
 def generar_grafica_pastel_liga():
    # URL para la clasificación de La Liga (PD)
    url = "https://api.football-data.org/v4/competitions/PD/standings"
