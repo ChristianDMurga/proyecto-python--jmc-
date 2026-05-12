@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import api_conexion
-import requests
 def generar_graficaygoles():
     """Genera una gráfica de barras con los goles de los últimos 10 partidos,
    filtrando partidos sin marcador."""
