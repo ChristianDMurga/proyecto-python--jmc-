@@ -1,5 +1,5 @@
 import api_conexion
-def extraer_datos_partidos(datos):
+def extraer_datos_partidos(datos):   """Esta funcion sirve para extraer los datos de los partidos al dia que se corra el programa y te da los resultados."""
     partidos = datos.get("matches", [])
     for idx, partido in enumerate(partidos, 1): # Recorre cada partido y o enumera (1, 2, 3...)
         local = partido.get("homeTeam", {}).get("name", "Local")
