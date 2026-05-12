@@ -20,7 +20,7 @@ if home_g is not None and away_g is not None:
  
 if not nombres_partidos:
     print("No se encontraron partidos con goles numéricos.")
- 
+ #Todo lo que dice plt es para configurar la Grafica
 plt.figure(figsize=(12, 6))
 plt.bar(nombres_partidos, total_goles, color='skyblue', edgecolor='navy')
 plt.title('Cantidad Total de Goles por Partido', fontsize=15, pad=20)
@@ -33,7 +33,7 @@ plt.savefig('grafica_partidosygoles.png')
 plt.show()
  
  
-def graficar_clasificacionpremier():
+def graficar_clasificacionpremier():    """Esta funcion sirve para generar la grafica de barras de la tabla de clasifciacion de la Premier League."""
     url = "https://api.football-data.org/v4/competitions/PL/standings"
     headers = {"X-Auth-Token": "3468641386934e6f9fbc4344d8347104"}
     try:
