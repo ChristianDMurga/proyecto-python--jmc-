@@ -1,3 +1,4 @@
+import api_conexion
 def generar_grafica_pastel_liga():
    url = "https://api.football-data.org/v4/competitions/PD/standings"
    headers = {
