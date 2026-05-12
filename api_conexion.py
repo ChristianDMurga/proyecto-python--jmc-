@@ -2,7 +2,6 @@ import requests
 import json
  
 def obtener_datos():
- """Se conecta a la API de football-data.org para obtener los partidos actuales."""
     url = "https://api.football-data.org/v4/matches"
    
     headers = {
