@@ -1,5 +1,5 @@
 import api_conexion
-def generar_graficaygoles():
+def generar_graficaygoles():  """Esta funcion sirve para hacer la grafica de cuantos goles hubo en los partidos del dia que se corra el programa."""
     datos = obtener_datos()
     if not datos or "matches" not in datos:
         print("No se pudieron obtener datos.")
