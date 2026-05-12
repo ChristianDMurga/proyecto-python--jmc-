@@ -1,6 +1,7 @@
 import requests
 import json
- 
+import matplotlib.pyplot as plt
+
 def obtener_datos():
     url = "https://api.football-data.org/v4/matches"
    
