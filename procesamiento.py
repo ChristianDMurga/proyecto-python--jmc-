@@ -1,7 +1,5 @@
 import api_conexion
 def extraer_datos_partidos(datos):
-    """Recorre la lista de partidos, extrae los nombres de los equipos 
-   y con sus marcadores."""
     partidos = datos.get("matches", [])
     for idx, partido in enumerate(partidos, 1): # Recorre cada partido y o enumera (1, 2, 3...)
         local = partido.get("homeTeam", {}).get("name", "Local")
