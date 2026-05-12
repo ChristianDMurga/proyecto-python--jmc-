@@ -1,5 +1,5 @@
 import api_conexion
-def generar_grafica_pastel_liga():
+def generar_grafica_pastel_liga():  """Funcion que sirve para obtener los datos de la Liga Española y generar un grafico de pastel."""
    url = "https://api.football-data.org/v4/competitions/PD/standings"
    headers = {
        "X-Auth-Token": "3468641386934e6f9fbc4344d8347104"
