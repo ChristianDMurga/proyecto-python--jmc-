@@ -25,6 +25,7 @@ def generar_grafica_pastel_liga():  """Esta funcion sirve para graficar la tabla
             plt.title('Distribución de Puntos: La Liga Española', fontsize=15)
             plt.axis('equal')
             plt.tight_layout()
+            plt.savefig('clasificacion_laliga.png')
             print("Gráfica La Liga guardada como 'clasificacion_laliga.png'")
             plt.show()
         else:
