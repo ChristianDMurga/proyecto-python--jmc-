@@ -32,6 +32,7 @@ def generar_graficaygoles():   """Esta funcion sirve para graficar los partidos 
     plt.xticks(rotation=30, ha='right')
     plt.ylabel('Número de Goles')
     plt.tight_layout()
+    plt.savefig('grafica_partidosygoles.png')
     print("Gráfica de goles guardada como 'grafica_partidosygoles.png'")
     plt.show()
 
@@ -59,6 +60,7 @@ def graficar_clasificacionpremier():   """Esta funcion te grafica la tabla de cl
             plt.text(v + 0.5, i, str(v), va='center', fontweight='bold')
 
         plt.tight_layout()
+        plt.savefig('clasificacion_premier.png')
         print("Gráfica Premier guardada como 'clasificacion_premier.png'")
         plt.show()
     except Exception as e:
