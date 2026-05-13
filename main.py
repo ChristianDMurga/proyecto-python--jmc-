@@ -1,7 +1,6 @@
 from api_conexion import obtener_datos
 from procesamiento import extraer_datos_partidos
-from graficas import generar_graficaygoles, graficar_clasificacionpremier
-from grafica3 import generar_grafica_pastel_liga
+from graficas import generar_graficaygoles, graficar_clasificacionpremier, generar_grafica_pastel_liga
 
 if __name__ == "__main__":
     print("Iniciando extracción de datos futbolísticos...")
@@ -21,7 +20,7 @@ if __name__ == "__main__":
     # 3. Generar gráfica de la Premier League (desde graficas.py)
     graficar_clasificacionpremier()
 
-    # 4. Generar gráfica de La Liga (desde graficas3.py)
+    # 4. Generar gráfica de La Liga (desde graficas.py)
     generar_grafica_pastel_liga()
 
     print("\nProceso finalizado con éxito.")
